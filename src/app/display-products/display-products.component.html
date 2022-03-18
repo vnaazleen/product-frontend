@@ -1,0 +1,32 @@
+
+<div class="container">
+    <h1 class="mt-3"> Product CRUD </h1>
+    <button type="button" class="mt-3 mb-3 btn btn-primary" (click)="goToAddProduct()">+ Add Product</button>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of _productList">
+            <th scope="row">{{ product.productId }}</th>
+            <td> {{ product.name }}</td>
+            <td> {{ product.desc }}</td>
+            <td> {{ product.price }} </td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-info" (click)="goToViewProduct(product.productId)">View</button>
+                    <button type="button" class="btn btn-success" (click)="goToEditProduct(product.productId)">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteProduct(product.productId)">Delete</button>
+                </div>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+</div>
